@@ -1,9 +1,17 @@
+#!/usr/bin/env python2.7
+
+"""OOP WTPC2016 dia 2.
+ """
+
+__author__      = "Humberto Celleri"
+
 import radar
 import medio
 import blanco
 import generador
 import datetime
 import detector
+import matplotlib.pyplot as plt
 
 
 # DISCLAMER!!
@@ -16,6 +24,8 @@ def main():
     # Intervalo de tiempo en el que vamos a medir
     tiempo_inicial = datetime.datetime(2016, 3, 5, 1)
     tiempo_final = datetime.datetime(2016, 3, 5, 10)
+    # print tiempo_inicial,"\n"
+    # CONSULTA!: Como mide datetime? en segundos?
 
     import math
     # parametros del generador de senales
@@ -23,8 +33,17 @@ def main():
     fase = 1
     frecuencia = 20*math.pi
 
-    #TODO construir un nuevo genrador de senales
 
+    # Pedimos a generador que genere una senar
+    Un_generador = generador.Generador(amplitud,fase,frecuencia)
+    Una_senal = Un_generador.generar(tiempo_inicial,tiempo_final)
+    # print Una_senal
+    # Plot tthe signal
+    fig = plt.figure()
+    plt.plot(Una_senal)
+    plt.grid(True)
+    plt.show()
+    
     #TODO construir un detector
 
     #TODO construir un nuevo radar
