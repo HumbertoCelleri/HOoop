@@ -26,3 +26,5 @@ class Radar(object):
         pass
 
     #TODO agregar el metodo plotear_senal
+    def plotear_senal(self):
+        return 0

@@ -8,9 +8,8 @@ class Blanco(object):
         pass
 
     def reflejar(self, senal, tiempo_inicial, tiempo_final):
-
+        
         #TODO ver como se encajan los tiempos del blanco y del intervalo de tiempo
         #(interseccion de invervalos)
         # despues aplicar los parametros del blanco sobre ese intervalo de tiempo
         pass
-        

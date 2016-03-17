@@ -35,30 +35,35 @@ def main():
 
 
     # Pedimos a generador que genere una senar
-    Un_generador = generador.Generador(amplitud,fase,frecuencia)
-    Una_senal = Un_generador.generar(tiempo_inicial,tiempo_final)
+    un_generador = generador.Generador(amplitud,fase,frecuencia)
+    una_senal = un_generador.generar(tiempo_inicial,tiempo_final)
     # print Una_senal
+    
     # Plot tthe signal
     fig = plt.figure()
-    plt.plot(Una_senal)
+    plt.plot(una_senal)
     plt.grid(True)
     plt.show()
     
     #TODO construir un detector
+    un_detector = detector.Detector()
 
     #TODO construir un nuevo radar
-
+    un_radar = radar.Radar(un_generador,un_detector)
 
     # parametros para un blanco
     amplitud_de_frecuencia_del_blanco = amplitud + 100
     tiempo_inicial_del_blanco = datetime.datetime(2016, 3, 5, 2)
     tiempo_final_del_blanco = datetime.datetime(2016, 3, 5, 4)
+    
     #TODO contruir un nuevo blanco
-
+    un_blanco = blanco.Blanco(amplitud_de_frecuencia_del_blanco, tiempo_inicial_del_blanco, tiempo_final_del_blanco)
 
     #TODO contruir un medio
-
-    #TODO construir un radar
-
+    un_medio = medio.Medio()
+    
+    #TODO construir un radar: Graficar señal entrante y modificada por el blanco?
+    un_radar.plotear_senal(una_senal,una_senal_reflejada)
+    
 if __name__ == "__main__":
     main()
